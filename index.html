@@ -249,7 +249,7 @@ button{font-family:inherit;}
   border:3px solid var(--paper); display:flex; align-items:center; justify-content:center;
 }
 .tl-dot svg{width:9px;height:9px;fill:#fff;}
-.tl-time{font-family:'Cormorant Garamond',serif; font-weight:600; font-size:15px; color:var(--sea-deep);}
+.tl-time{font-family:'Zen Kaku Gothic New',sans-serif; font-weight:900; font-size:15px; color:var(--sea-deep); letter-spacing:.01em; font-variant-numeric:tabular-nums;}
 .tl-title{font-weight:900; font-size:14.5px; margin:2px 0 4px;}
 .tl-desc{font-size:12.5px; color:#5c5346; line-height:1.6;}
 .tl-meta{font-size:11px; color:#948a7a; margin-top:5px;}
@@ -543,27 +543,27 @@ const CATS = {
 
 const DAY1 = [
  {t:'05:30',icon:'car',title:'大阪（塚本駅）出発',desc:'週末朝の行楽渋滞を回避するため05:30出発を厳守。',meta:'',travel:{dur:'約1時間15分',note:'阪神高速〜神戸淡路鳴門自動車道'}},
- {t:'06:45',icon:'car',title:'淡路SA（下り）',desc:'朝のトイレ休憩とお茶等の購入。',meta:'滞在15分',link:'https://www.jb-highway.co.jp/sapa/awaji_down.html',travel:{dur:'約1時間15分',note:'高松自動車道を経由'}},
- {t:'08:15',icon:'udon',title:'【朝食】山越うどん',desc:'09:00開店の45分前到着で「第1陣」を確保。名物「かまたま」をお庭で堪能。',meta:'滞在75分（開店待ち45分＋飲食30分）・予算500〜800円/人・日,水休',link:'https://yamagoeudon.com/',travel:{dur:'約45分',note:'一般道経由で高松港へ'}},
- {t:'10:15',icon:'ferry',title:'高松港 到着・待機',desc:'11:10発フェリーの車両乗船手続き締切（出港30分前＝10:40）を余裕でクリア。',meta:'待機55分',link:'https://ryobi-shodoshima.jp/'},
- {t:'11:10',icon:'ferry',title:'フェリー乗船（高松港→池田港）',desc:'国際両備フェリー。12:10 池田港上陸。',meta:'乗船60分',link:'https://ryobi-shodoshima.jp/',travel:{dur:'約5分',note:'池田港から目と鼻の先'}},
- {t:'12:15',icon:'bowl',title:'【昼食】道の駅 小豆島ふるさと村',desc:'手延べの「オリーブそうめん」と「すももソフト」。',meta:'滞在45分・予算約1,000円/人',link:'https://www.shodoshima.jp/',travel:{dur:'約30分',note:'島の南東端へ海岸線ドライブ'}},
- {t:'13:30',icon:'torii',title:'二十四の瞳映画村',desc:'大正・昭和初期の木造校舎やセットを満喫。目の前の「かまとこ」でお買い物も。',meta:'滞在70分・入場料 大人1,000円',link:'https://www.24hitomi.or.jp/',travel:{dur:'約15分',note:''}},
- {t:'14:55',icon:'soft',title:'醤の郷（マルキン醤油記念館）',desc:'醤油の香る黒い板塀の町並みを散策。名物「しょうゆソフト」（約350円）を堪能。',meta:'滞在20分・入館料 大人500円',link:'https://marukin.moritakk.com/kinenkan/',travel:{dur:'約25分',note:'ロープウェイ山麓駅へ'}},
- {t:'15:40',icon:'mountain',title:'寒霞渓 ＋ ロープウェイ',desc:'夕方の最終終了間際を避けて乗車。山頂での夕陽に映える大渓谷美を堪能。かわらけ投げ体験も。',meta:'滞在65分・往復2,340円/人',link:'https://www.kankakei.co.jp/',travel:{dur:'約35分',note:'渓谷を下り宿へ'}},
- {t:'17:20',icon:'hotel',title:'国民宿舎 小豆島 チェックイン',desc:'最遅チェックイン（18:00）を余裕でクリア。夕食（19:00予定）までオーシャンビューの露天風呂で癒し時間を。',meta:'',link:'https://www.kokuminshukusha.com/'}
+ {t:'06:45〜07:00',icon:'car',title:'淡路SA（下り）',desc:'朝のトイレ休憩とお茶等の購入。',meta:'滞在15分',link:'https://www.jb-highway.co.jp/sapa/awaji_down.html',travel:{dur:'約1時間15分',note:'高松自動車道を経由'}},
+ {t:'08:15〜09:30',icon:'udon',title:'【朝食】山越うどん',desc:'09:00開店の45分前到着で「第1陣」を確保。名物「かまたま」をお庭で堪能。',meta:'滞在75分（開店待ち45分＋飲食30分）・予算500〜800円/人・日,水休',link:'https://yamagoeudon.com/',travel:{dur:'約45分',note:'一般道経由で高松港へ'}},
+ {t:'10:15〜11:10',icon:'ferry',title:'高松港 到着・待機',desc:'11:10発フェリーの車両乗船手続き締切（出港30分前＝10:40）を余裕でクリア。',meta:'待機55分',link:'https://ryobi-shodoshima.jp/'},
+ {t:'11:10〜12:10',icon:'ferry',title:'フェリー乗船（高松港→池田港）',desc:'国際両備フェリー。12:10 池田港上陸。',meta:'乗船60分',link:'https://ryobi-shodoshima.jp/',travel:{dur:'約5分',note:'池田港から目と鼻の先'}},
+ {t:'12:15〜13:00',icon:'bowl',title:'【昼食】道の駅 小豆島ふるさと村',desc:'手延べの「オリーブそうめん」と「すももソフト」。',meta:'滞在45分・予算約1,000円/人',link:'https://www.shodoshima.jp/',travel:{dur:'約30分',note:'島の南東端へ海岸線ドライブ'}},
+ {t:'13:30〜14:40',icon:'torii',title:'二十四の瞳映画村',desc:'大正・昭和初期の木造校舎やセットを満喫。目の前の「かまとこ」でお買い物も。',meta:'滞在70分・入場料 大人1,000円',link:'https://www.24hitomi.or.jp/',travel:{dur:'約15分',note:''}},
+ {t:'14:55〜15:15',icon:'soft',title:'醤の郷（マルキン醤油記念館）',desc:'醤油の香る黒い板塀の町並みを散策。名物「しょうゆソフト」（約350円）を堪能。',meta:'滞在20分・入館料 大人500円',link:'https://marukin.moritakk.com/kinenkan/',travel:{dur:'約25分',note:'ロープウェイ山麓駅へ'}},
+ {t:'15:40〜16:45',icon:'mountain',title:'寒霞渓 ＋ ロープウェイ',desc:'夕方の最終終了間際を避けて乗車。山頂での夕陽に映える大渓谷美を堪能。かわらけ投げ体験も。',meta:'滞在65分・往復2,340円/人',link:'https://www.kankakei.co.jp/',travel:{dur:'約35分',note:'渓谷を下り宿へ'}},
+ {t:'17:20〜',icon:'hotel',title:'国民宿舎 小豆島 チェックイン',desc:'最遅チェックイン（18:00）を余裕でクリア。夕食（19:00予定）までオーシャンビューの露天風呂で癒し時間を。',meta:'',link:'https://www.kokuminshukusha.com/'}
 ];
 const DAY2 = [
- {t:'07:00',icon:'hotel',title:'朝食＆チェックアウト準備',desc:'宿でゆっくり朝食をいただき、身支度をしてチェックアウト。',meta:'滞在50分',travel:{dur:'約10分',note:''}},
- {t:'08:00',icon:'torii',title:'富丘八幡神社',desc:'朝の静かな空気の中、高台からの美しい海を一望して参拝。',meta:'滞在25分・参拝無料',travel:{dur:'約5分',note:'隣接エリアのため一瞬で到着'}},
- {t:'08:30',icon:'sun',title:'エンジェルロード',desc:'この日の干潮ピーク（約9時）直前。最も美しく太い砂の道が繋がるベストタイミング。',meta:'滞在35分・入場無料',link:'https://www.shikokuferry.com/angel/',travel:{dur:'約15分',note:'東へ折り返すように進む'}},
- {t:'09:20',icon:'windmill',title:'道の駅 小豆島オリーブ公園',desc:'魔法のほうきレンタル無料。ギリシャ風車前での撮影や「雑貨コリコ」でのお買い物、ハーブ温室を満喫。',meta:'滞在60分',link:'https://www.olive-pk.jp/',travel:{dur:'約10分',note:''}},
- {t:'10:30',icon:'ferry',title:'池田港 到着・乗船手続き',desc:'車両積載の手続き締切（30分前）を完璧にクリア。',meta:'手続き30分',link:'https://ryobi-shodoshima.jp/'},
- {t:'11:00',icon:'ferry',title:'フェリー乗船（池田港→高松港）',desc:'国際両備フェリー。のんびり瀬戸内海の船旅を。',meta:'乗船60分',link:'https://ryobi-shodoshima.jp/',travel:{dur:'約30分',note:'高松港から庵治半島方面へ'}},
- {t:'12:30',icon:'udon',title:'【昼食】うどん本陣 山田家 讃岐本店',desc:'WEB予約不可・店頭受付のみ。登録有形文化財の屋敷で極上の「釜ぶっかけうどん」を。',meta:'滞在90分・予算1,000〜1,500円/人・水休（11/1は営業）',link:'https://yamada-ya.com/',travel:{dur:'約1時間5分',note:'鳴門北IC→大鳴門橋→淡路島南IC（約75km）'}},
- {t:'15:05',icon:'mountain',title:'うずの丘 大鳴門橋記念館',desc:'巨大なたまねぎオブジェ「おっ玉葱」で記念撮影。たまねぎキャッチャーにも挑戦。',meta:'滞在45分・入場無料',link:'https://kinen.uzunokuni.com/',travel:{dur:'約50分',note:'神戸淡路鳴門道を北上（約60km）'}},
- {t:'16:40',icon:'sun',title:'道の駅 あわじ',desc:'明石海峡大橋の真下という景観を、日没（17:05頃）前後の夕焼けとライトアップとともに。',meta:'滞在45分・入場無料',link:'https://michi-awaji.co.jp/',travel:{dur:'約1時間35分',note:'渋滞バッファを十分に確保'}},
- {t:'19:00',icon:'hotel',title:'大阪（塚本駅）到着・解散',desc:'お疲れ様でした！大満足の1泊2日旅行の完了です。',meta:''}
+ {t:'07:00〜07:50',icon:'hotel',title:'朝食＆チェックアウト準備',desc:'宿でゆっくり朝食をいただき、身支度をしてチェックアウト。',meta:'滞在50分',travel:{dur:'約10分',note:''}},
+ {t:'08:00〜08:25',icon:'torii',title:'富丘八幡神社',desc:'朝の静かな空気の中、高台からの美しい海を一望して参拝。',meta:'滞在25分・参拝無料',travel:{dur:'約5分',note:'隣接エリアのため一瞬で到着'}},
+ {t:'08:30〜09:05',icon:'sun',title:'エンジェルロード',desc:'この日の干潮ピーク（約9時）直前。最も美しく太い砂の道が繋がるベストタイミング。',meta:'滞在35分・入場無料',link:'https://www.shikokuferry.com/angel/',travel:{dur:'約15分',note:'東へ折り返すように進む'}},
+ {t:'09:20〜10:20',icon:'windmill',title:'道の駅 小豆島オリーブ公園',desc:'魔法のほうきレンタル無料。ギリシャ風車前での撮影や「雑貨コリコ」でのお買い物、ハーブ温室を満喫。',meta:'滞在60分',link:'https://www.olive-pk.jp/',travel:{dur:'約10分',note:''}},
+ {t:'10:30〜11:00',icon:'ferry',title:'池田港 到着・乗船手続き',desc:'車両積載の手続き締切（30分前）を完璧にクリア。',meta:'手続き30分',link:'https://ryobi-shodoshima.jp/'},
+ {t:'11:00〜12:00',icon:'ferry',title:'フェリー乗船（池田港→高松港）',desc:'国際両備フェリー。のんびり瀬戸内海の船旅を。',meta:'乗船60分',link:'https://ryobi-shodoshima.jp/',travel:{dur:'約30分',note:'高松港から庵治半島方面へ'}},
+ {t:'12:30〜14:00',icon:'udon',title:'【昼食】うどん本陣 山田家 讃岐本店',desc:'WEB予約不可・店頭受付のみ。登録有形文化財の屋敷で極上の「釜ぶっかけうどん」を。',meta:'滞在90分・予算1,000〜1,500円/人・水休（11/1は営業）',link:'https://yamada-ya.com/',travel:{dur:'約1時間5分',note:'鳴門北IC→大鳴門橋→淡路島南IC（約75km）'}},
+ {t:'15:05〜15:50',icon:'mountain',title:'うずの丘 大鳴門橋記念館',desc:'巨大なたまねぎオブジェ「おっ玉葱」で記念撮影。たまねぎキャッチャーにも挑戦。',meta:'滞在45分・入場無料',link:'https://kinen.uzunokuni.com/',travel:{dur:'約50分',note:'神戸淡路鳴門道を北上（約60km）'}},
+ {t:'16:40〜17:25',icon:'sun',title:'道の駅 あわじ',desc:'明石海峡大橋の真下という景観を、日没（17:05頃）前後の夕焼けとライトアップとともに。',meta:'滞在45分・入場無料',link:'https://michi-awaji.co.jp/',travel:{dur:'約1時間35分',note:'渋滞バッファを十分に確保'}},
+ {t:'19:00頃',icon:'hotel',title:'大阪（塚本駅）到着・解散',desc:'お疲れ様でした！大満足の1泊2日旅行の完了です。',meta:''}
 ];
 
 const GOURMET = [
@@ -628,6 +628,11 @@ const NOTICES = [
    '10月下旬〜11月は紅葉のピークで、ロープウェイが大変混雑します。',
    '行程では夕方の最終便間際を避けた15:40発を予定し、混雑を回避。',
    '往復運賃は大人2,340円（10/31までのA期間料金）。'
+ ]},
+ {icon:'ferry',title:'フェリーの事前予約について',warn:false,items:[
+   '予約がなくても先着順で乗船可能ですが、乗用車の予約枠は全体の約半数のみです。',
+   '10/31〜11/1は紅葉ピークの週末と重なるため、事前予約をしておくとより安心です。',
+   '高松航路の予約期限は出航24時間前まで。公式サイト（ryobi-shodoshima.jp）から予約できます。'
  ]}
 ];
 
@@ -707,7 +712,7 @@ function renderTimeline(data, elId){
     <div class="tl-item">
       <div class="tl-dot" style="background:var(--olive)"></div>
       <div class="card" style="margin-bottom:0;">
-        <div class="tl-time accent-en">${d.t}</div>
+        <div class="tl-time">${d.t}</div>
         <div class="tl-title">${d.title}</div>
         <div class="tl-desc">${d.desc}</div>
         ${d.meta ? `<div class="tl-meta">${d.meta}</div>` : ''}
