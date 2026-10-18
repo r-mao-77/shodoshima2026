@@ -1,0 +1,20 @@
+{
+  "name": "瀬戸内 絶景と美食の旅 旅のしおり",
+  "short_name": "小豆島しおり",
+  "display": "standalone",
+  "background_color": "#F4EAD2",
+  "theme_color": "#15323C",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
