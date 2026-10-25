@@ -234,6 +234,9 @@ button{font-family:inherit;}
 }
 .trivia-card .icircle{background:rgba(216,169,79,0.2); color:#9c7a2e; width:34px; height:34px; flex:none;}
 .trivia-card .icircle svg{width:17px;height:17px;}
+.trivia-card .tv-no{font-weight:700; color:#c2b9a9; margin-left:4px; font-variant-numeric:tabular-nums;}
+.trivia-card.tv-swap{animation:tvSwap .6s ease both;}
+@keyframes tvSwap{from{opacity:0;}to{opacity:1;}}
 .trivia-card .tv-label{font-size:10.5px; font-weight:800; color:#a89f8f; letter-spacing:.04em; margin-bottom:2px;}
 .trivia-card .tv-text{font-size:12.5px; line-height:1.6; color:#4a4237;}
 .travelers-strip{
@@ -796,17 +799,39 @@ const PACKING = [
 ];
 
 const TRIVIA = [
- '小豆島は瀬戸内海で2番目に大きな島。1番大きいのは淡路島です。',
- '小豆島は、1908年に西村地区でオリーブの栽培に成功して以来、日本の産業用オリーブ発祥の地とされています。',
- '小豆島のオリーブは、生産量日本一を誇ります。',
- '1989年、小豆島はギリシャのミロス島と「姉妹島」提携を結んでいます。オリーブ公園の風車はそのご縁も。',
- '寒霞渓は1934年、日本で最初の国立公園（瀬戸内海国立公園）の一部に指定されました。',
+ '小豆島は瀬戸内海で2番目に大きな島。1番大きいのは淡路島です。面積は約153km²あります。',
+ '「小豆島」の名前は『古事記』の国生みの場面にも登場します。とても古くからある島の名前なんです。',
+ '『日本書紀』では「阿豆枳辞摩（あずきしま）」と書かれています。今の読み方は「しょうどしま」。',
+ '島は土庄町と小豆島町の2つの町からなります。小豆島町は2006年に内海町と池田町が合併して生まれました。',
+ '1908年、国が三重・香川・鹿児島の3県でオリーブの試験栽培を始めましたが、栽培に成功したのは小豆島だけでした。',
+ 'オリーブは香川県の「県花」（1954年）であり、「県木」（1966年）でもあります。',
+ '国産オリーブの生産量は香川県が全国一。その中心が小豆島です。',
+ '「オリーブ牛」は、オリーブの搾りかすから作った飼料を出荷前の2か月以上食べて育った讃岐牛のこと。肉質がやわらかく風味豊かになるそうです。',
+ 'オリーブ公園のギリシャ風車は、姉妹島であるギリシャのミロス島から贈られたもの。1992年に建てられました。',
+ 'オリーブ公園は、2014年公開の実写映画『魔女の宅急便』のロケ地。園内の「雑貨コリコ」はロケセットを使ったお店です。',
+ 'オリーブ公園では「魔法のほうき」を無料で借りられます。ほうきにまたがってジャンプする写真が定番です。',
+ '小豆島の醤油づくりは江戸時代に始まりました。最盛期には島内に約400もの醤油蔵があったといわれています。',
+ '島には約1,000本の醤油の木桶があり、全国で今も使われている木桶の約半分にあたるといわれています。',
+ '内海の一帯は「醤の郷（ひしおのさと）」と呼ばれ、今も醤油蔵や佃煮工場が建ち並んでいます。',
+ '小豆島の佃煮づくりは戦後に始まり、今では醤油を上回る生産額になっています。',
+ '小豆島の手延べそうめんは約400年前、島民がお伊勢参りの途中に奈良・三輪で製法を学んで持ち帰ったのが始まりといわれています。',
+ '島には手延べそうめんの製麺所が約110軒あり、その多くが家族経営です。',
+ 'マルキン醤油記念館は、国の登録有形文化財である合掌造りの醤油蔵を利用しています。',
+ '寒霞渓の奇岩は、約1300万年前の火山活動でできた岩が、長い年月をかけて風雨に削られて生まれました。',
+ '「寒霞渓」は明治の初めに儒学者・藤沢南岳が名付けた名前。それ以前は「かんかけ」と呼ばれ、「神懸」などと書かれていました。',
  '寒霞渓は「日本三大渓谷美」のひとつに数えられています。',
+ '寒霞渓は1934年、日本で最初に指定された国立公園のひとつ「瀬戸内海国立公園」の一部になりました。',
+ '大坂城の石垣には、小豆島で切り出された花崗岩がたくさん使われています。島内の石切り場の跡は国の史跡です。',
+ '中山千枚田は、香川県で唯一「日本の棚田百選」に選ばれた棚田。斜面に約760枚の田んぼが並びます。',
+ '中山千枚田は映画『八日目の蝉』（2011年）のロケ地。7月に行われる伝統行事「虫送り」も映画に登場します。',
+ '『二十四の瞳』の作者・壺井栄は小豆島の出身です。',
  '1954年公開の映画『二十四の瞳』が大ヒットし、小豆島に観光ブームが訪れました。',
  'エンジェルロードは、1日2回、干潮の時間帯にだけ砂の道が現れる自然現象です。',
+ 'エンジェルロードは「天使の散歩道」とも呼ばれ、道の真ん中で手をつないだカップルは結ばれるという言い伝えがあります。',
+ 'エンジェルロードは、弁天島から中余島・小余島・大余島へと続く砂の道です。',
  'うどん本陣 山田家の建物は、国の登録有形文化財に指定されています。',
- 'マルキン醤油記念館は、国の登録有形文化財である合掌造りの醤油蔵を利用しています。',
- '小豆島は「醤の郷」と呼ばれるほど、400年以上続く醤油づくりの伝統がある地域です。'
+ '明石海峡大橋は全長3,911m、中央の支間は1,991m。1998年の開通当時、世界最長の吊り橋でした。',
+ '淡路島は『古事記』の国生み神話で、最初に生まれた島とされています。'
 ];
 
 /* =========================================================================
@@ -1117,17 +1142,24 @@ function renderTripStatus(){
   heroEl.classList.remove('hidden');
   heroEl.innerHTML = heroCountdownHTML(diffDays, msUntil);
 }
+// one fact per hour; a stride walks through the list so similar topics don't land back to back
+let triviaShown = -1;
 function renderTrivia(){
   const el = document.getElementById('triviaCard');
   if(!el) return;
   const now = new Date();
-  const startOfYear = new Date(now.getFullYear(),0,0);
-  const dayOfYear = Math.floor((now-startOfYear)/86400000);
-  const idx = dayOfYear % TRIVIA.length;
-  el.innerHTML = `<div class="trivia-card">
+  const hourNo = Math.floor((now.getTime() - now.getTimezoneOffset()*60000) / 3600000);
+  const n = TRIVIA.length;
+  const gcd = (a,b)=> b ? gcd(b, a%b) : a;
+  const stride = gcd(7, n)===1 ? 7 : 1;
+  const idx = (hourNo * stride) % n;
+  if(idx === triviaShown) return;
+  const first = triviaShown < 0;
+  triviaShown = idx;
+  el.innerHTML = `<div class="trivia-card${first ? '' : ' tv-swap'}">
     <div class="icircle">${svgIcon('olive',18)}</div>
     <div>
-      <div class="tv-label">今日の小豆島雑学</div>
+      <div class="tv-label">小豆島雑学 <span class="tv-no">${idx+1}/${n}</span></div>
       <div class="tv-text">${TRIVIA[idx]}</div>
     </div>
   </div>`;
@@ -1381,6 +1413,7 @@ setInterval(()=>markCurrentItem(false), 30000);
 renderTripStatus();
 setInterval(renderTripStatus, 1000);
 renderTrivia();
+setInterval(renderTrivia, 60000);
 initLeaves();
 applyTimeTint();
 setInterval(applyTimeTint, 300000);
