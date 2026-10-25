@@ -177,8 +177,7 @@ button{font-family:inherit;}
 .leaf .spin{position:relative; width:100%; height:100%; transform-style:preserve-3d; will-change:transform;}
 .leaf .face{position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;}
 .leaf .face.back{transform:rotateY(180deg);}
-.leaf svg{width:100%; height:100%; display:block; overflow:visible;}
-@media(prefers-reduced-motion: reduce){.leaf-layer{display:none;}}
+.leaf svg{width:100%; height:100%; display:block; overflow:visible; filter:var(--lf, none);}
 .hero .scrim{
   position:absolute; inset:0;
   background:linear-gradient(to top, rgba(15,35,42,0.92) 0%, rgba(15,35,42,0.45) 45%, rgba(15,35,42,0.06) 68%, rgba(15,35,42,0.34) 100%);
@@ -319,6 +318,15 @@ button{font-family:inherit;}
 .now-next .nn-main b{font-variant-numeric:tabular-nums; font-size:13.5px;}
 .now-next .nn-sub{font-size:10.5px; color:#8a8070; font-variant-numeric:tabular-nums;}
 .now-next.urgent .nn-main{color:var(--terracotta);}
+.ticket{margin-top:12px; border-radius:12px; padding:11px 13px 10px; background:var(--sea-deep); color:#fff; position:relative; overflow:hidden;}
+.ticket::before, .ticket::after{content:""; position:absolute; top:50%; width:14px; height:14px; margin-top:-7px; border-radius:50%; background:var(--paper);}
+.ticket::before{left:-7px;} .ticket::after{right:-7px;}
+.tk-top{display:flex; align-items:baseline; gap:10px;}
+.tk-label{font-size:10.5px; font-weight:700; opacity:.75;}
+.tk-no{font-family:'Zen Kaku Gothic New',sans-serif; font-weight:900; font-size:20px; letter-spacing:.14em; color:var(--gold); user-select:all; -webkit-user-select:all;}
+.tk-route{font-size:12.5px; font-weight:700; margin-top:3px; font-variant-numeric:tabular-nums;}
+.tk-arrow{margin:0 6px; opacity:.6;}
+.tk-note{font-size:10.5px; opacity:.78; margin-top:5px; padding-top:6px; border-top:1px dashed rgba(255,255,255,.25); line-height:1.5;}
 .tide{margin-top:12px; padding:11px 12px 10px; border-radius:12px; background:rgba(44,122,148,.07);}
 .tide-head{display:flex; justify-content:space-between; align-items:baseline; gap:8px; font-size:11px; font-weight:700; color:var(--sea-deep); margin-bottom:22px;}
 .tide-head span:last-child{font-weight:500; color:#8a8070; font-size:10.5px;}
@@ -410,7 +418,8 @@ button{font-family:inherit;}
   display:flex; align-items:center; gap:10px; background:#fff; border-radius:14px; padding:13px 14px;
   border:1px solid rgba(42,36,32,.08); text-decoration:none; margin-bottom:10px;
 }
-.tel-btn .num{margin-left:auto; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:900; font-size:15px; color:var(--sea-deep); letter-spacing:.01em; font-variant-numeric:tabular-nums;}
+.tel-btn > div:nth-child(2){min-width:0;}
+.tel-btn .num{margin-left:auto; white-space:nowrap; flex:none; padding-left:8px; font-family:'Zen Kaku Gothic New',sans-serif; font-weight:900; font-size:15px; color:var(--sea-deep); letter-spacing:.01em; font-variant-numeric:tabular-nums;}
 
 /* ==================== BUDGET ==================== */
 .budget-row{display:flex; justify-content:space-between; align-items:baseline; padding:8px 0; border-bottom:1px dashed rgba(42,36,32,.15); font-size:12.8px;}
@@ -632,6 +641,7 @@ const MARKERS = [
  {id:'tomioka-shrine',name:'富丘八幡神社',cat:'sightseeing',lat:34.485956296790505,lng:134.1954231584902,placeId:'ChIJCV1A0cCJUzURoGanYHqz4TQ',official:null,note:'高台からエンジェルロードを一望できる隠れた絶景。参拝無料。'},
  {id:'angel-road',name:'エンジェルロード',cat:'sightseeing',lat:34.479339587671646,lng:134.18883131852147,placeId:'ChIJISiqLJiJUzUREqZM0_6o3jM',official:'https://www.shikokuferry.com/angel/',note:'干潮時のみ現れる砂の道。潮位表は公式サイトで要確認。'},
  {id:'olive-park',name:'道の駅 小豆島オリーブ公園',cat:'sightseeing',lat:34.474823603813554,lng:134.27345076301694,placeId:'ChIJC-KIFXR4VDURasxl3L0o26M',official:'https://www.olive-pk.jp/',note:'ギリシャ風車と魔法のほうき撮影スポット。雑貨コリコも。'},
+ {id:'okonomi-tsukamoto',name:'大阪お好み焼き塚本',cat:'food',lat:34.7134419,lng:135.4672735,placeId:'ChIJk_b_vyflAGARgQEBABBr4Xs',official:'https://www.xn--t8jg3m487nlmat09iy95c.com/',note:'2日目の夕食（19:30〜予約済み）。日曜は11:30〜23:00。'},
  {id:'yamadaya',name:'うどん本陣 山田家 讃岐本店',cat:'food',lat:34.35326801082641,lng:134.12974407672735,placeId:'ChIJHTq9C_6SUzURcamR_rZEdZA',official:'https://yamada-ya.com/',note:'2日目の昼食。WEB予約不可、店頭発券機での受付のみ。'},
  {id:'minori-gelato',name:'MINORI GELATO',cat:'food',lat:34.47977615916668,lng:134.29860262149376,placeId:'ChIJQ1sz4O54VDURfsiRU3zizV4',official:'https://shodoshima.or.jp/sightseeing/detail.php?id=397&c=5',note:'島の旬素材を使った本格ジェラート専門店。行列必至。'},
  {id:'nakabuan',name:'なかぶ庵',cat:'food',lat:34.4829294959299,lng:134.32256523508687,placeId:'ChIJg54TFit5VDURC60esQFvuLs',official:'https://shodoshima-nakabuan.co.jp/',note:'出来立て生そうめんが味わえる。月曜定休。'},
@@ -650,8 +660,8 @@ const DAY1 = [
  {t:'05:30',icon:'car',title:'大阪（塚本駅）出発',desc:'週末朝の行楽渋滞を回避するため05:30出発を厳守。',meta:'',travel:{dur:'約1時間15分',note:'阪神高速〜神戸淡路鳴門自動車道'}},
  {t:'06:45〜07:00',icon:'car',title:'淡路SA（下り）',desc:'朝のトイレ休憩とお茶等の購入。',meta:'滞在15分',link:'https://www.jb-highway.co.jp/sapa/awaji_down.html',travel:{dur:'約1時間15分',note:'高松自動車道を経由'}},
  {t:'08:15〜09:30',icon:'udon',title:'【朝食】山越うどん',desc:'09:00開店の45分前到着で「第1陣」を確保。名物「かまたま」をお庭で堪能。',meta:'滞在75分（開店待ち45分＋飲食30分）・予算500〜800円/人・日,水休',link:'https://yamagoeudon.com/',travel:{dur:'約45分',note:'一般道経由で高松港へ'}},
- {t:'10:15〜11:10',icon:'ferry',title:'高松港 到着・待機',desc:'11:10発フェリーの車両乗船手続き締切（出港30分前＝10:40）を余裕でクリア。',meta:'待機55分',link:'https://ryobi-shodoshima.jp/'},
- {t:'11:10〜12:10',icon:'ferry',title:'フェリー乗船（高松港→池田港）',desc:'国際両備フェリー。12:10 池田港上陸。',meta:'乗船60分・予約済み（車1台＋大人3名 7,730円）',link:'https://ryobi-shodoshima.jp/',travel:{dur:'約5分',note:'池田港から目と鼻の先'}},
+ {t:'10:15〜11:10',icon:'ferry',title:'高松港 到着・乗船手続き',desc:'港のカウンターで予約代表者の名前を伝えて手続き。締切は出港30分前の10:40（過ぎると先着順扱い）。',meta:'待機55分・予約完了メールと車検証を提示',link:'https://ryobi-shodoshima.jp/'},
+ {t:'11:10〜12:10',icon:'ferry',title:'フェリー乗船（高松港→池田港）',desc:'国際両備フェリー。12:10 池田港上陸。',meta:'乗船60分・車1台＋大人3名 7,730円',ticket:{no:'KSH6T',from:'高松港 11:10発',to:'池田港 12:10着',deadline:'10:40'},link:'https://ryobi-shodoshima.jp/',travel:{dur:'約5分',note:'池田港から目と鼻の先'}},
  {t:'12:15〜13:00',icon:'bowl',title:'【昼食】道の駅 小豆島ふるさと村',desc:'手延べの「オリーブそうめん」と「すももソフト」。',meta:'滞在45分・予算約1,000円/人',link:'https://www.shodoshima.jp/',travel:{dur:'約35分',note:'寒霞渓ロープウェイ こううん駅へ'}},
  {t:'13:35〜14:45',icon:'mountain',title:'寒霞渓 ＋ ロープウェイ',desc:'紅葉期は乗車待ちが読めないため、一番最初に回します。昼の光で紅葉と大渓谷美をくっきり堪能。かわらけ投げ体験も。',meta:'滞在70分・往復2,340円/人',link:'https://www.kankakei.co.jp/',travel:{dur:'約25分',note:'渓谷を下り醤の郷へ'}},
  {t:'15:10〜15:30',icon:'soft',title:'醤の郷（マルキン醤油記念館）',desc:'名物「しょうゆソフト」（約350円）を購入。黒い板塀の町並みを眺めながらひと休み。16:30閉館なので寒霞渓が押しても先にこちらへ。',meta:'滞在20分（ソフトクリーム購入のみ）',link:'https://marukin.moritakk.com/kinenkan/',travel:{dur:'約15分',note:'映画村へ'}},
@@ -663,12 +673,13 @@ const DAY2 = [
  {t:'08:00〜08:25',icon:'torii',title:'富丘八幡神社',desc:'朝の静かな空気の中、高台からの美しい海を一望して参拝。',meta:'滞在25分・参拝無料',travel:{dur:'約5分',note:'隣接エリアのため一瞬で到着'}},
  {t:'08:30〜09:05',icon:'sun',title:'エンジェルロード',desc:'この日の干潮ピーク（約9時）直前。最も美しく太い砂の道が繋がるベストタイミング。',meta:'滞在35分・入場無料',tide:{date:'2026-11-01',from:'06:07',to:'12:07',next:'20:19'},link:'https://www.shikokuferry.com/angel/',travel:{dur:'約15分',note:'東へ折り返すように進む'}},
  {t:'09:20〜10:20',icon:'windmill',title:'道の駅 小豆島オリーブ公園',desc:'魔法のほうきレンタル無料。ギリシャ風車前での撮影や「雑貨コリコ」でのお買い物、ハーブ温室を満喫。',meta:'滞在60分',link:'https://www.olive-pk.jp/',travel:{dur:'約10分',note:''}},
- {t:'10:30〜11:00',icon:'ferry',title:'池田港 到着・乗船手続き',desc:'車両積載の手続き締切（30分前）を完璧にクリア。',meta:'手続き30分',link:'https://ryobi-shodoshima.jp/'},
- {t:'11:00〜12:00',icon:'ferry',title:'フェリー乗船（池田港→高松港）',desc:'国際両備フェリー。のんびり瀬戸内海の船旅を。',meta:'乗船60分・予約済み（車1台＋大人3名 6,960円／往復割適用）',link:'https://ryobi-shodoshima.jp/',travel:{dur:'約30分',note:'高松港から庵治半島方面へ'}},
+ {t:'10:30〜11:00',icon:'ferry',title:'池田港 到着・乗船手続き',desc:'港のカウンターで予約代表者の名前を伝えて手続き。締切は出港30分前の10:30なので、遅れずに到着を（過ぎると先着順扱い）。',meta:'手続き30分・予約完了メールと車検証を提示',link:'https://ryobi-shodoshima.jp/'},
+ {t:'11:00〜12:00',icon:'ferry',title:'フェリー乗船（池田港→高松港）',desc:'国際両備フェリー。のんびり瀬戸内海の船旅を。',meta:'乗船60分・車1台＋大人3名 6,960円（往復割適用）',ticket:{no:'KSH6T',from:'池田港 11:00発',to:'高松港 12:00着',deadline:'10:30'},link:'https://ryobi-shodoshima.jp/',travel:{dur:'約30分',note:'高松港から庵治半島方面へ'}},
  {t:'12:30〜14:00',icon:'udon',title:'【昼食】うどん本陣 山田家 讃岐本店',desc:'WEB予約不可・店頭受付のみ。登録有形文化財の屋敷で極上の「釜ぶっかけうどん」を。',meta:'滞在90分・予算1,000〜1,500円/人・水休（11/1は営業）',link:'https://yamada-ya.com/',travel:{dur:'約1時間5分',note:'鳴門北IC→大鳴門橋→淡路島南IC（約75km）'}},
  {t:'15:05〜15:50',icon:'mountain',title:'うずの丘 大鳴門橋記念館',desc:'巨大なたまねぎオブジェ「おっ玉葱」で記念撮影。たまねぎキャッチャーにも挑戦。',meta:'滞在45分・入場無料',link:'https://kinen.uzunokuni.com/',travel:{dur:'約50分',note:'神戸淡路鳴門道を北上（約60km）'}},
  {t:'16:40〜17:25',icon:'sun',title:'道の駅 あわじ',desc:'明石海峡大橋の真下という景観を、日没（17:05頃）前後の夕焼けとライトアップとともに。',meta:'滞在45分・入場無料',link:'https://michi-awaji.co.jp/',travel:{dur:'約1時間35分',note:'渋滞バッファを十分に確保'}},
- {t:'19:00頃',icon:'hotel',title:'大阪（塚本駅）到着・解散',desc:'お疲れ様でした！大満足の1泊2日旅行の完了です。',meta:''}
+ {t:'19:00頃',icon:'car',title:'大阪（塚本駅）到着',desc:'長距離の運転お疲れ様でした。荷物を置いて、お好み焼きへ。',meta:''},
+ {t:'19:30〜',icon:'bowl',title:'【夕食】大阪お好み焼き塚本',desc:'旅の締めくくりは地元・塚本のお好み焼きで乾杯。味の決め手はソース。お疲れ様でした！',meta:'19:30〜予約済み・日曜は11:30〜23:00（L.O.22:00）',link:'https://www.xn--t8jg3m487nlmat09iy95c.com/'}
 ];
 
 const GOURMET = [
@@ -678,6 +689,7 @@ const GOURMET = [
  {icon:'mountain',day:'1日目 午後',name:'寒霞渓ロープウェイ 山頂フードコート',desc:'絶景を眺めながら「オリーブ牛コロッケバーガー」や見た目も美しい「もみじサイダー」を。',hours:'8:00〜17:00（秋の特別期）',link:'https://www.kankakei.co.jp/',link2:{label:'グルメ＆ショッピング',url:'https://www.kankakei.co.jp/gourmet/'}},
  {icon:'udon',day:'2日目 昼食',name:'うどん本陣 山田家 讃岐本店',desc:'江戸時代の民家を改装した壮麗な手打ちうどん店（登録有形文化財）。当日店頭発券機受付のみ。',hours:'水休（11/1は営業）',link:'https://yamada-ya.com/'},
  {icon:'torii',day:'映画村内',name:'食事処・キネマの庵',desc:'昭和のアルマイト食器に入った「給食セット」や「極上醤油ソフトクリーム」、「オリーブレモン」など。',hours:'09:00〜17:00',link:'https://www.24hitomi.or.jp/',link2:{label:'お食事ページ',url:'https://www.24hitomi.or.jp/eigamura/syokuji/'}},
+ {icon:'bowl',day:'2日目 夕食',name:'大阪お好み焼き塚本',desc:'旅の最後は地元・塚本で。味の決め手はソース。大阪府大阪市西淀川区柏里3-14-17 ルーミハイツ塚本1F（06-6478-5789）。',hours:'19:30〜予約済み／日・祝 11:30〜23:00（L.O.22:00）',link:'https://www.xn--t8jg3m487nlmat09iy95c.com/'},
  {icon:'icecream',day:'池田港〜オリーブ公園',name:'MINORI GELATO（ミノリジェラート）',desc:'草壁港すぐ。行列ができる人気ジェラート専門店。オリーブ・醤油・酒粕・柑橘など島の食材を贅沢に使用。',hours:'',link:'https://shodoshima.or.jp/sightseeing/detail.php?id=397&c=5'},
  {icon:'bowl',day:'醤の郷エリア',name:'なかぶ庵（中武商店）',desc:'もっちり強いコシとつるりとした喉越しの出来立て生そうめん。予約制で製造体験・工場見学も。',hours:'月休（祝日の場合翌日）',link:'https://shodoshima-nakabuan.co.jp/'},
  {icon:'soft',day:'池田港エリア',name:'井上誠耕園「らしく園」',desc:'オリーブオイルをふんだんに使った料理やシフォンケーキ、ソフトクリームが楽しめる複合施設。',hours:'',link:'https://shodoshima-or-jp.shodoshima.or.jp/sightseeing/detail.php?id=153&c=5'},
@@ -713,7 +725,8 @@ const SHOPS = [
 const NOTICES = [
  {icon:'ferry',title:'フェリー乗船手続き（車両あり）',warn:true,items:[
    '車を載せる手続きは「窓口」のみの取り扱い。自動券売機は不可。',
-   '出航30分前（今回は高松港10:40／池田港10:25）までに港へ到着し手続き完了を。',
+   '出航30分前（今回は高松港10:40／池田港10:30）までに、港のカウンターで予約代表者の名前を伝えて手続きを。過ぎると「先着順」扱いになり、乗れない場合があります。',
+   '窓口で「予約完了メール（または予約確認ページ）」と「車検証」を提示。車検証は必須です。',
    '高松港窓口 6:15〜20:30／池田港窓口 5:00〜19:00。',
    '窓口はクレカ・電子マネー・交通系ICが幅広く対応。QRはPayPayのみ利用可。',
    '手荷物運賃・車両回数券・オリーブバスフリー乗車券・小豆島—関西連絡きっぷは現金のみ。'
@@ -733,18 +746,23 @@ const NOTICES = [
    '待ち時間が読めないため、行程では寒霞渓を午後一番（13:35頃）に回し、最終便に間に合わないリスクを避けています。',
    '往復運賃は大人2,340円（10/31までのA期間料金）。'
  ]},
- {icon:'ferry',title:'フェリーの事前予約について',warn:false,items:[
-   '予約がなくても先着順で乗船可能ですが、乗用車の予約枠は全体の約半数のみです。',
-   '10/31〜11/1は紅葉ピークの週末と重なるため、事前予約をしておくとより安心です。',
-   '高松航路の予約期限は出航24時間前まで。公式サイト（ryobi-shodoshima.jp）から予約できます。'
+ {icon:'ferry',title:'フェリーの予約内容（予約済み）',warn:false,items:[
+   '予約番号：<b>KSH6T</b>（行き・帰り共通）／国際両備フェリー',
+   '行き：10/31（土）高松港 11:10発 → 池田港 12:10着',
+   '帰り：11/1（日）池田港 11:00発 → 高松港 12:00着',
+   '高松港：香川県高松市サンポート8-22（087-851-9848）',
+   '池田港：香川県小豆郡小豆島町池田1-18（0879-75-0405）'
  ]}
 ];
 
 const EMERGENCY = [
+ {name:'国際両備フェリー 高松港',addr:'香川県高松市サンポート8-22',tel:'087-851-9848',note:'予約番号 KSH6T・行き 10/31 11:10発'},
+ {name:'国際両備フェリー 池田港',addr:'香川県小豆郡小豆島町池田1-18',tel:'0879-75-0405',note:'予約番号 KSH6T・帰り 11/1 11:00発'},
  {name:'寒霞渓ロープウェイ',addr:'香川県小豆郡小豆島町神懸通乙168（山頂駅）',tel:'0879-82-2171',note:'紅葉期は乗車待ちが予想されます'},
  {name:'二十四の瞳映画村',addr:'香川県小豆郡小豆島町田浦',tel:'0879-82-2455',note:'年中無休 9:00〜17:00'},
  {name:'道の駅 小豆島オリーブ公園',addr:'香川県小豆郡小豆島町西村甲1941-1',tel:'0879-82-2200',note:'年中無休 8:30〜17:00'},
  {name:'山越うどん',addr:'香川県綾歌郡綾川町羽床上602-2',tel:'087-878-0420',note:'営業9:00〜13:30'},
+ {name:'大阪お好み焼き塚本',addr:'大阪府大阪市西淀川区柏里3-14-17 ルーミハイツ塚本1F',tel:'06-6478-5789',note:'2日目 19:30〜 予約済み（遅れそうなときはこちらへ）'},
  {name:'うどん本陣 山田家 讃岐本店',addr:'香川県高松市牟礼町牟礼3186',tel:'087-845-6522',note:'水曜定休（11/1は営業）'},
  {name:'小豆島観光協会（旅の総合相談窓口）',addr:'西村甲・オリーブ公園近く',tel:'0879-82-1775',note:'渋滞等で不安な場合はまずこちらへ'}
 ];
@@ -771,7 +789,7 @@ const BUDGET = {
 };
 
 const PACKING = [
- {icon:'cash',group:'必需品',items:['現金（フェリー窓口の一部支払い・オリーブバスフリー乗車券等は現金のみ）','交通系ICカードまたはクレジットカード','モバイルバッテリー','保険証・車検証（レンタカーの場合）']},
+ {icon:'cash',group:'必需品',items:['現金（フェリー窓口の一部支払い・オリーブバスフリー乗車券等は現金のみ）','交通系ICカードまたはクレジットカード','モバイルバッテリー','車検証（フェリー乗船手続きで必須）','フェリーの予約完了メール（スクショしておくと安心）','保険証']},
  {icon:'shirt',group:'服装',items:['羽織れる上着（10月末〜11月の瀬戸内は朝晩冷えます）','歩きやすい靴','エンジェルロード用に濡れてもいい靴・サンダル（砂の道を渡ります）']},
  {icon:'sun',group:'現地で便利なもの',items:['日焼け止め・帽子（日中の日差し対策）','小銭（お守り・賽銭用）','酔い止め（フェリー・ロープウェイが気になる方）','カメラ／スマホの充電・予備バッテリー']},
  {icon:'clock',group:'前日までの確認',items:['エンジェルロードの干潮時間の最新情報','山越うどん・山田家の定休日再確認','寒霞渓ロープウェイの運行状況（強風等で運休の可能性）']}
@@ -834,6 +852,11 @@ function renderTimeline(data, elId){
         <div class="tl-desc">${d.desc}</div>
         ${d.meta ? `<div class="tl-meta">${d.meta}</div>` : ''}
         ${d.tide ? tideHTML(d) : ''}
+        ${d.ticket ? `<div class="ticket">
+          <div class="tk-top"><span class="tk-label">予約番号</span><span class="tk-no">${d.ticket.no}</span></div>
+          <div class="tk-route">${d.ticket.from}<span class="tk-arrow">→</span>${d.ticket.to}</div>
+          <div class="tk-note">${d.ticket.deadline}までに窓口で手続き・予約完了メールと車検証を提示</div>
+        </div>` : ''}
         ${d.link ? `<a class="linkbtn" href="${d.link}" target="_blank" rel="noopener">${svgIcon('shop',13)}公式サイト</a>` : ''}
       </div>
     </div>
@@ -1118,7 +1141,6 @@ function initLeaves(){
   if(!layer) return;
   const month = new Date().getMonth()+1; // 1-12
   if(month !== 10 && month !== 11) return; // only during autumn (Oct/Nov)
-  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   // momiji (Japanese maple): 7 pointed lobes — readable as a maple leaf even at small sizes
   const shape = 'M44.4 61.8 C38.9 65.0 30.8 66.9 25.9 65.7 C28.6 61.5 35.8 57.2 35.0 56.8 C30.2 56.3 19.7 51.6 15.4 46.1 C22.0 43.7 33.4 45.2 37.6 47.5 C30.9 42.1 24.3 30.0 24.1 21.7 C32.1 24.1 41.9 33.8 45.2 41.8 C42.6 31.8 44.8 17.2 50.0 10.0 C55.2 17.2 57.4 31.8 54.8 41.8 C58.1 33.8 67.9 24.1 75.9 21.7 C75.7 30.0 69.1 42.1 62.4 47.5 C66.6 45.2 78.0 43.7 84.6 46.1 C80.3 51.6 69.8 56.3 65.0 56.8 C64.2 57.2 71.4 61.5 74.1 65.7 C69.2 66.9 61.1 65.0 55.6 61.8 Z';
@@ -1140,14 +1162,17 @@ function initLeaves(){
 
   const N = 6;
   const leaves = [];
-  let W = layer.clientWidth, H = layer.clientHeight;
-  window.addEventListener('resize', ()=>{ W = layer.clientWidth; H = layer.clientHeight; });
+  let W = 0, H = 0, placed = false;
+  function measure(){ W = layer.clientWidth; H = layer.clientHeight; }
+  measure();
+  window.addEventListener('resize', measure);
+  if(window.ResizeObserver) new ResizeObserver(measure).observe(layer);
 
   function reset(L, first){
     L.depth = Math.random();                      // 0 = far, 1 = near
     L.len = 20 + L.depth*20;                      // leaf size in px
     L.x0 = Math.random()*W;
-    L.y = first ? -L.len - Math.random()*H : -L.len - Math.random()*120;
+    L.y = first ? -L.len + Math.random()*H*0.75 : -L.len - Math.random()*120;   // first batch starts already in view
     L.vy = 22 + L.depth*26;                       // px/s, near leaves fall faster (parallax)
     L.amp = 18 + Math.random()*34;                // side-to-side glide width
     L.freq = 0.55 + Math.random()*0.5;            // glide speed
@@ -1158,7 +1183,7 @@ function initLeaves(){
     L.el.style.width = L.len+'px';
     L.el.style.height = L.len+'px';
     L.el.style.opacity = (0.55 + L.depth*0.4).toFixed(2);
-    L.el.style.filter = `blur(${L.depth>0.8 ? 0.8 : L.depth<0.25 ? 0.5 : 0}px) drop-shadow(0 2px 2px rgba(0,0,0,.25))`;
+    L.el.style.setProperty('--lf', `blur(${L.depth>0.8 ? 0.8 : L.depth<0.25 ? 0.5 : 0}px) drop-shadow(0 2px 2px rgba(0,0,0,.25))`);
   }
 
   for(let i=0;i<N;i++){
@@ -1182,6 +1207,8 @@ function initLeaves(){
     gustT -= dt;
     if(gustT <= 0){ gust = (Math.random()<.35) ? 25 + Math.random()*35 : 0; gustT = 2 + Math.random()*4; }
     const homeVisible = document.getElementById('view-home').classList.contains('active');
+    if(W===0 || H===0) measure();
+    if(!placed && W>0 && H>0){ leaves.forEach(L=>reset(L,true)); placed = true; }   // re-spread once the hero has a real size
     if(homeVisible && W>0){
       for(const L of leaves){
         L.t += dt;
